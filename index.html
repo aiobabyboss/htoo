@@ -1,191 +1,944 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="my">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance</title>
-    <meta name="robots" content="noindex, nofollow">
-
-    <!-- Modern, clean font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
+    <title>ဆရာ ထူးသစ်စျာန် - ဓာတ်၊နတ်၊သိုက်၊ဂမ္ဘီရ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Base Styles */
         :root {
-            --primary: #ff6a00;
-            --secondary: #ff944d;
-            --text-main: #ffffff;
-            --text-soft: rgba(255,255,255,0.85);
-            --glass-bg: rgba(255,255,255,0.14);
-            --glass-border: rgba(255,255,255,0.25);
-            --shadow-soft: 0 20px 50px rgba(0,0,0,0.35);
-            --font-main: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #CD853F;
+            --light-color: #F5F5DC;
+            --dark-color: #333;
+            --text-color: #333;
+            --white: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: var(--font-main);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--text-main);
+            font-family: 'Padauk', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            direction: ltr;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1600x900/?myanmar,temple') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
         }
 
-        .container {
-            width: 100%;
-            max-width: 560px;
-            padding: 42px 30px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid var(--glass-border);
-            border-radius: 22px;
-            box-shadow: var(--shadow-soft);
-            animation: fadeUp 0.8s ease-out;
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* ===== ICON ===== */
-        .icon-wrap {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 26px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.15);
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .cta-button, .buy-button, .submit-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Padauk', sans-serif;
+        }
+
+        .cta-button:hover, .buy-button:hover, .submit-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+
+        /* Baydin Section */
+        .baydin-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .baydin-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            width: 300px;
+        }
+
+        .baydin-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .baydin-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .date-selection {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .date-form {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .date-input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1rem;
+        }
+
+        .result-display {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .result-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .result-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        svg {
-            width: 64px;
-            height: 64px;
-            stroke: #fff;
-            stroke-width: 1.8;
-            fill: none;
-            animation: spin 8s linear infinite;
+        .result-image {
+            flex: 1;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 0 0 12px;
-            letter-spacing: 1px;
+        .result-image i {
+            font-size: 5rem;
+            color: var(--secondary-color);
         }
 
-        p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-soft);
-            margin: 0 0 18px;
+        .result-details {
+            flex: 2;
         }
 
-        .cta-text {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #ffe0c2;
+        /* Assistant Baydin */
+        .assistant-baydin {
+            text-align: center;
         }
 
-        /* ===== PROGRESS BAR ===== */
-        .progress {
-            margin-top: 26px;
-            height: 6px;
+        .iframe-container {
+            position: relative;
             width: 100%;
-            background: rgba(255,255,255,0.25);
+            height: 600px;
+            margin-top: 2rem;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .progress-bar {
-            height: 100%;
-            width: 40%;
-            background: linear-gradient(
-                90deg,
-                rgba(255,255,255,0.4),
-                rgba(255,255,255,0.9),
-                rgba(255,255,255,0.4)
-            );
-            animation: loading 2.2s infinite ease-in-out;
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .footer-note {
-            position: fixed;
-            bottom: 14px;
-            width: 100%;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.6);
+        .product-img {
+            background-color: var(--accent-color);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .product-content {
+            padding: 1.5rem;
             text-align: center;
         }
 
-        @media (min-width: 768px) {
-            h1 { font-size: 2.7rem; }
-            p  { font-size: 1.15rem; }
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 1rem 0;
         }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
+        /* Contact */
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
-        @keyframes loading {
-            0%   { transform: translateX(-100%); }
-            50%  { transform: translateX(120%); }
-            100% { transform: translateX(120%); }
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Padauk', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .date-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .result-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .iframe-container {
+                height: 400px;
+            }
+            
+            .contact-content {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://i.ibb.co/8LPhfcNz/Mon-25-08-2025-06-51-38.png" alt="ဆရာ ထူးသစ်စျာန်" class="logo-img">
+                <div class="logo-text">ဆရာ ထူးသစ်စျာန်</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                    <li><a href="#baydin">ပညာဒါနဗေဒင်</a></li>
+                    <li><a href="#assistant-baydin">လက်ထောက်ဗေဒင်</a></li>
+                    <li><a href="#services">ဝန်ဆောင်မှုများ</a></li>
+                    <li><a href="#products">ဂမ္ဘီရအဆောင်များ</a></li>
+                    <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
 
-    <div class="container">
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ဂမ္ဘီရလောကီထူးသစ်စျာန်</h1>
+            <p>ဗေဒင်ဟောခြင်း၊ အစီအမံများစီရင်ဆောင်ရွက်ပေးခြင်း ၊ မှော်ပစ္စည်းများ အဆောင်လက်ဖွဲ့များ ရောင်းချခြင်းနှင့် လောကီဆိုင်ရာ ပြဿနာများ ဖြေရှင်းပေးခြင်း</p>
+            <div class="hero-buttons">
+                <a href="#baydin" class="cta-button">ပညာဒါနဗေဒင်</a>
+                <a href="#contact" class="cta-button">ဆရာနှင့်တိုက်ရိုက်ဆွေးနွေးရန်</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Minimal SVG Icon -->
-        <div class="icon-wrap">
-            <svg viewBox="0 0 24 24">
-                <path d="M12 8a4 4 0 1 0 4 4"/>
-                <path d="M2 12h2m16 0h2M12 2v2m0 16v2"/>
-                <path d="M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4"/>
-                <path d="M4.9 19.1l1.4-1.4m11.4-11.4l1.4-1.4"/>
-            </svg>
+    <section class="baydin-section" id="baydin">
+        <h2 class="section-title">ပညာဒါနဗေဒင်</h2>
+        <div class="baydin-cards">
+            <div class="baydin-card" data-type="day">
+                <div class="baydin-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3>ယနေ့ကံဇာတာ</h3>
+                <p>သင့်မွေးနေ့အလိုက် ဗေဒင်ဟောစာတမ်းများကို ဖတ်ရှုနိုင်ပါသည်</p>
+            </div>
+            <div class="baydin-card" data-type="week">
+                <div class="baydin-icon">
+                    <i class="fas fa-calendar-week"></i>
+                </div>
+                <h3>တစ်ပတ်စာဇာတာ</h3>
+                <p>ယခုအပတ်အတွက် ကံကြမ္မာကို ဟောကြားထားပါသည်</p>
+            </div>
+            <div class="baydin-card" data-type="month">
+                <div class="baydin-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>တစ်လတာဇာတာ</h3>
+                <p>ယခုလအတွက် သင့်ကံကြမ္မာကို လေ့လာနိုင်ပါသည်</p>
+            </div>
         </div>
 
-        <h1>Under Maintenance</h1>
-
-        <p>
-            We are currently performing scheduled maintenance  
-            to improve our services and overall experience.
-        </p>
-
-        <p class="cta-text">
-            Please check back shortly.  
-            Thank you for your patience.
-        </p>
-
-        <!-- Subtle Progress Indicator -->
-        <div class="progress">
-            <div class="progress-bar"></div>
+        <div class="date-selection">
+            <h3>သင့်မွေးနေ့ကို ရွေးချယ်ပါ</h3>
+            <div class="date-form">
+                <input type="date" class="date-input" id="birthDate">
+                <button class="cta-button" id="calculateBtn">ဟောကြားမှုကိုကြည့်ရန်</button>
+            </div>
         </div>
 
-    </div>
+        <div class="result-display" id="resultDisplay">
+            <div class="result-header">
+                <h3>သင့်ဗေဒင်ဟောစာတမ်း</h3>
+                <p id="resultDate"></p>
+            </div>
+            <div class="result-content">
+                <div class="result-image">
+                    <i class="fas fa-star" id="resultIcon"></i>
+                </div>
+                <div class="result-details">
+                    <h4 id="resultTitle">ခေါင်းစဉ်</h4>
+                    <p id="resultDescription">ဟောကြားချက်အကြောင်းအရာ...</p>
+                    <div id="resultDetails"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="footer-note">
-        This site is currently undergoing scheduled maintenance.
-    </div>
+    <section class="assistant-baydin" id="assistant-baydin">
+        <h2 class="section-title">လက်ထောက်ဗေဒင်</h2>
+        <p>အောက်ပါလင့်ခ်မှတစ်ဆင့် လက်ထောက်ဗေဒင်ကို ကြည့်ရှုနိုင်ပါသည်</p>
+        <div class="iframe-container">
+            <iframe src="https://www.ydnp.net/baydin/" frameborder="0"></iframe>
+        </div>
+    </section>
 
+    <section class="services" id="services">
+        <h2 class="section-title">ဝန်ဆောင်မှုများ</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-magic"></i>
+                </div>
+                <h3>ဆရာနှင့်တိုက်ရိုက်မေးမြန်းမှု</h3>
+                <p>တားရော့ဖြင့် ဟောခြင်း၊ မြန်မာ့ဗေဒင် ပညာဖြင့် ဟောခြင်း၊ ကြွေ၊နမိတ် ကြည့်ခြင်း စသည့် ဗေဒင်ပညာရပ်များ</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <h3>အစီအမံများ</h3>
+                <p>အိမ်တွင်းရေး၊ စီးပွားရေး၊ ကျန်းမာရေး စသည့် ပြဿနာများအတွက် လောကီနည်းဖြင့် အစီအမံစီရင်ဆောင်ရွက်ပေးခြင်း</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>မှော်ဂမ္ဘီရအဆောင်ပစ္စည်းများ</h3>
+                <p>ကံစမ်းရန်၊ အိမ်တွင်းအေးချမ်းရန်၊ စီးပွားတိုးတက်ရန်၊အိမ်ထောင်ရေး၊ပညာရေး၊အချစ်ရေးကံဇာတာများတိုးတက်ရန် အပြင်အခြားဂမ္ဘီရမှော်ဝင်အဆောင်လက်ဖွဲ့များ</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <h2 class="section-title">မှော်ဂမ္ဘီရပစ္စည်းများ</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <div class="product-content">
+                    <h3>ကံထူးဂမ္ဘီရရေမွှေး</h3>
+                    <p>ထူးထူးခြားခြားကံထူးချင်တယ်ဆိုသူတွေအတွက်</p>
+                    <div class="product-price">၂၇,၀၀၀ ကျပ်</div>
+                    <a href="#" class="buy-button">ဝယ်ယူရန်</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="product-content">
+                    <h3>အန္တရာယ်ကာကွယ်သည့်လက်ဖွဲ့</h3>
+                    <p>မကောင်းသောအားအန္တရာယ်မှ ကာကွယ်ပေးသည်</p>
+                    <div class="product-price">၂၇,၀၀၀ ကျပ်</div>
+                    <a href="#" class="buy-button">ဝယ်ယူရန်</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="product-content">
+                    <h3>စီးပွားတိုးတက်စေသောဒင်္ဂါး</h3>
+                    <p>စီးပွားရေးတိုးတက်စေရန် ကူညီပေးသည်</p>
+                    <div class="product-price">၂၇,၀၀၀ ကျပ်</div>
+                    <a href="#" class="buy-button">ဝယ်ယူရန်</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="product-content">
+                    <h3>ချစ်သူနှောင်းဖွဲ့စေသောဆေး</h3>
+                    <p>ချစ်ရေးချစ်ရာ ပြဿနာများ ဖြေရှင်းပေးသည်</p>
+                    <div class="product-price">၂၇,၀၀၀ ကျပ်</div>
+                    <a href="#" class="buy-button">ဝယ်ယူရန်</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">ဆက်သွယ်ရန်</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>ဆက်သွယ်ရန်အချက်အလက်</h3>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <p>အမှတ်(၂၈၂)၊ဗိုလ်ချုပ်လမ်း၊ပန်းတနော်မြို့</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <p>၀၉-၆၈၈၅၆၆၉၉၇</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <p>saya.htoo@gmail.com</p>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <p>နေ့စဉ် နံနက် ၁၀နာရီမှ ညနေ ၁၀နာရီအထိ</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" placeholder="သင့်နာမည်" required>
+                    <input type="email" placeholder="သင့်အီးမေးလ်" required>
+                    <input type="tel" placeholder="သင့်ဖုန်းနံပါတ်" required>
+                    <textarea placeholder="သင့်ပြဿနာအကြောင်း" required></textarea>
+                    <button type="submit" class="submit-button">မက်ဆေ့ပို့ရန်</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/16NvHhrmK9/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@erix382?_t=ZS-8z9wHteGU0m&_r=1"><i class="fab fa-tiktok"></i></a>
+                <a href="+959688566997"><i class="fab fa-viber"></i></a>
+                <a href="https://t.me/htoothitzyan"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p class="copyright">© 2025 ဆရာ ထူးသစ်စျာန် - လောကီပညာရှင်. မူပိုင်ခွင့်အားလုံးမှတ်ပုံတင်အတည်ပြုပြီးစီး</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for baydin results with day of week specific predictions
+        const baydinData = {
+            day: {
+                title: "ယနေ့ကံဇာတာ",
+                icon: "fa-sun",
+                description: "သင့်မွေးနေ့အရ ယနေ့သည် ကံကောင်းသောနေ့ဖြစ်သည်။ စီးပွားရေးလုပ်ငန်းများ တိုးတက်ကောင်းမွန်ပြီး အချစ်ရေးတွင်လည်း အောင်မြင်မှုရရှိနိုင်သည်။"
+            },
+            week: {
+                title: "တစ်ပတ်စာဇာတာ",
+                icon: "fa-calendar-week",
+                description: "ယခုအပတ်တွင် စီးပွားရေးတိုးတက်မှုများ ရှိနိုင်သည်။ အိမ်ထောင်ရေးတွင်လည်း သာယာမှုများ ရရှိနိုင်ပါသည်။",
+                days: {
+                    0: { // Sunday
+                        title: "တနင်္ဂနွေနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့တွင် သင်သည် စိတ်ရှည်သည်းခံရမည့်အချိန်ဖြစ်သည်။ ဆုံးဖြတ်ချက်များချရာတွင် သတိထားပါ။"
+                    },
+                    1: { // Monday
+                        title: "တနင်္လာနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့သည် စီးပွားရေးအတွက် ကောင်းမွန်သောနေ့ဖြစ်သည်။ လုပ်ငန်းဆောင်တာများ အောင်မြင်နိုင်သည်။"
+                    },
+                    2: { // Tuesday
+                        title: "အင်္ဂါနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့တွင် ခရီးသွားလာခြင်းမှ ကောင်းကျိုးများရရှိနိုင်သည်။ ဆက်ဆံရေးတွင် သတိထားပါ။"
+                    },
+                    3: { // Wednesday
+                        title: "ဗုဒ္ဓဟူးနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့သည် ပညာရေးအတွက် ကောင်းမွန်သောနေ့ဖြစ်သည်။ စာမေးပွဲဖြေဆိုသူများ အောင်မြင်နိုင်သည်။"
+                    },
+                    4: { // Thursday
+                        title: "ကြာသပတေးနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့တွင် ငွေကြေးဆိုင်ရာ ကောင်းကျိုးများရရှိနိုင်သည်။ ရင်းနှီးမြှုပ်နှံမှုများ ပြုလုပ်ရန် သင့်တော်သည်။"
+                    },
+                    5: { // Friday
+                        title: "သောကြာနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့သည် အချစ်ရေးအတွက် ကောင်းမွန်သောနေ့ဖြစ်သည်။ ချစ်သူရည်းစားများ ဆက်ဆံရေးတိုးတက်နိုင်သည်။"
+                    },
+                    6: { // Saturday
+                        title: "စနေနေ့အတွက် ဟောစာတမ်း",
+                        description: "ယနေ့တွင် မိသားစုဆက်ဆံရေး ကောင်းမွန်သည်။ အိမ်တွင်းရေးပြဿနာများ ဖြေရှင်းနိုင်သည်။"
+                    }
+                }
+            },
+            month: {
+                title: "တစ်လတာဇာတာ",
+                icon: "fa-calendar-alt",
+                description: "ယခုလအတွင်း ခရီးသွားလာခြင်းမှ ကောင်းကျိုးများရရှိနိုင်သည်။ အလုပ်အကိုင်တွင်လည်း ရာထူးတိုးတက်မှုများ ရရှိနိုင်ပါသည်။",
+                days: {
+                    0: { // Sunday born
+                        title: "တနင်္ဂနွေသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလအတွင်း သင်သည် စိတ်ဓာတ်ခွန်အားများစွာရရှိမည်။ စီးပွားရေးလုပ်ငန်းများ တိုးတက်ကောင်းမွန်မည်။"
+                    },
+                    1: { // Monday born
+                        title: "တနင်္လာသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလသည် သင့်အတွက် ကံအားလုံးကောင်းမွန်သောလဖြစ်သည်။ လုပ်ရည်ကိုင်ရည်များ ပိုမိုတိုးတက်လာမည်။"
+                    },
+                    2: { // Tuesday born
+                        title: "အင်္ဂါသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလအတွင်း ခရီးသွားလာခြင်းမှ အကျိုးကျေးဇူးများရရှိမည်။ ဆက်ဆံရေးတွင် သတိထားရမည်။"
+                    },
+                    3: { // Wednesday born
+                        title: "ဗုဒ္ဓဟူးသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလသည် ပညာရေးအတွက် ကောင်းမွန်သောလဖြစ်သည်။ စာမေးပွဲဖြေဆိုသူများ အောင်မြင်နိုင်သည်။"
+                    },
+                    4: { // Thursday born
+                        title: "ကြာသပတေးသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလအတွင်း ငွေကြေးဆိုင်ရာ ကောင်းကျိုးများရရှိမည်။ ရင်းနှီးမြှုပ်နှံမှုများ ပြုလုပ်ရန် သင့်တော်သည်။"
+                    },
+                    5: { // Friday born
+                        title: "သောကြာသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလသည် အချစ်ရေးအတွက် ကောင်းမွန်သောလဖြစ်သည်။ ချစ်သူရည်းစားများ ဆက်ဆံရေးတိုးတက်မည်။"
+                    },
+                    6: { // Saturday born
+                        title: "စနေသားသမီးများအတွက် လစဉ်ဟောစာတမ်း",
+                        description: "ယခုလအတွင်း မိသားစုဆက်ဆံရေး ကောင်းမွန်မည်။ အိမ်တွင်းရေးပြဿနာများ ဖြေရှင်းနိုင်မည်။"
+                    }
+                }
+            }
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('birthDate').value = today;
+            
+            // Baydin card click event
+            document.querySelectorAll('.baydin-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const type = this.getAttribute('data-type');
+                    showBaydinResult(type);
+                });
+            });
+            
+            // Calculate button click event
+            document.getElementById('calculateBtn').addEventListener('click', function() {
+                const selectedDate = document.getElementById('birthDate').value;
+                if (selectedDate) {
+                    // For demo, just show day result
+                    showBaydinResult('day');
+                } else {
+                    alert('ကျေးဇူးပြု၍ မွေးနေ့ကို ရွေးချယ်ပါ။');
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('ကျေးဇူးတင်ပါသည်! သင့်မက်ဆေ့အား လက်ခံရရှိပါသည်။ ဆရာကြီးမှ မကြာမီဆက်သွယ်ပေးပါမည်။');
+                    this.reset();
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        // Show baydin result
+        function showBaydinResult(type) {
+            const result = baydinData[type];
+            const resultDisplay = document.getElementById('resultDisplay');
+            const selectedDate = document.getElementById('birthDate').value;
+            const dateObj = new Date(selectedDate);
+            const dayOfWeek = dateObj.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            
+            let formattedDate, title, description;
+            
+            if (type === 'day') {
+                formattedDate = dateObj.toLocaleDateString('my-MM', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                title = result.title;
+                description = result.description;
+            } else if (type === 'week' || type === 'month') {
+                formattedDate = dateObj.toLocaleDateString('my-MM', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Get day-specific prediction
+                const dayData = result.days[dayOfWeek];
+                title = dayData.title;
+                description = dayData.description;
+            }
+            
+            document.getElementById('resultDate').textContent = formattedDate;
+            document.getElementById('resultIcon').className = 'fas ' + result.icon;
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('resultDescription').textContent = description;
+            
+            // Add some random details for demo
+            const details = [
+                "ကျန်းမာရေး: ကောင်းမွန်သည်",
+                "စီးပွားရေး: တိုးတက်မှုရှိသည်",
+                "အချစ်ရေး: သာယာမှုရှိသည်",
+                "ကံကြမ္မာ: ကောင်းမွန်သောအခွင့်အလမ်းများရှိသည်"
+            ];
+            
+            const detailsHtml = details.map(detail => `<p>${detail}</p>`).join('');
+            document.getElementById('resultDetails').innerHTML = detailsHtml;
+            
+            resultDisplay.classList.add('active');
+            
+            // Scroll to result
+            resultDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
