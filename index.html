@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်</title>
+    <title>ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန် - ထူးလိုတရ</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700&family=Inter:wght@400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;700;800&family=Inter:wght@400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -39,7 +39,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Marquee Custom */
+        /* Marquee Bar */
         .marquee-bar {
             background: linear-gradient(90deg, #4A148C, #004D40);
             color: var(--color-accent);
@@ -52,6 +52,7 @@
             font-size: 0.95rem;
         }
 
+        /* Header */
         header {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
@@ -65,13 +66,13 @@
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--color-accent); object-fit: cover; }
-        .logo span { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 800; color: white; background: -webkit-linear-gradient(#fff, var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo span { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 800; color: white; background: -webkit-linear-gradient(#fff, var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        nav ul { display: flex; list-style: none; gap: 15px; }
-        nav ul li a { color: #ccc; text-decoration: none; padding: 8px 18px; border-radius: 30px; transition: 0.3s; font-weight: 600; }
+        nav ul { display: flex; list-style: none; gap: 10px; }
+        nav ul li a { color: #ccc; text-decoration: none; padding: 8px 15px; border-radius: 30px; transition: 0.3s; font-weight: 600; font-size: 0.9rem; }
         nav ul li a:hover { color: var(--color-accent); background: rgba(255, 255, 255, 0.1); }
 
-        /* Slider */
+        /* Banner Slider */
         .announcement-container {
             width: 100%; height: 500px; position: relative; overflow: hidden;
             margin-top: 20px; border-radius: var(--radius); box-shadow: var(--shadow-glow);
@@ -79,10 +80,7 @@
         .slide { position: absolute; inset: 0; opacity: 0; transition: 1.5s ease-in-out; }
         .slide.active { opacity: 1; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .slider-overlay {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, var(--color-bg-deep), transparent 60%);
-        }
+        .slider-overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--color-bg-deep), transparent 60%); }
 
         /* Dashboard */
         .veda-dashboard {
@@ -95,69 +93,61 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
 
-        .clock-section { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 25px; }
-        .digital-clock { font-size: 3.5rem; font-weight: 800; color: var(--color-accent); font-family: 'Courier New', monospace; text-shadow: 0 0 15px var(--color-accent); margin: 10px 0; }
+        .clock-section { text-align: center; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 25px; display: flex; flex-direction: column; justify-content: center; }
+        .digital-clock { font-size: 3rem; font-weight: 800; color: var(--color-accent); font-family: 'Courier New', monospace; text-shadow: 0 0 15px var(--color-accent); margin: 10px 0; }
         
-        .veda-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .veda-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; border-left: 4px solid var(--color-primary); transition: 0.3s; }
-        .veda-item:hover { background: rgba(255,255,255,0.1); transform: scale(1.02); }
-        .veda-item label { display: block; font-size: 0.8rem; color: #aaa; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .veda-item span { font-weight: 700; color: var(--color-secondary); font-size: 1.1rem; }
+        .veda-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .veda-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; border-left: 4px solid var(--color-primary); }
+        .veda-item label { display: block; font-size: 0.75rem; color: #aaa; margin-bottom: 3px; text-transform: uppercase; }
+        .veda-item span { font-weight: 700; color: var(--color-secondary); font-size: 1rem; line-height: 1.2; display: block; }
 
-        section { padding: 80px 0; }
-        .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; margin-bottom: 50px; color: var(--color-accent); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        /* Sections */
+        section { padding: 60px 0; }
+        .section-title { text-align: center; font-family: var(--font-serif); font-size: 2.2rem; margin-bottom: 40px; color: var(--color-accent); }
         
-        .card-style { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 35px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
-        .card-style:hover { transform: translateY(-10px); box-shadow: var(--shadow-glow); border-color: var(--color-primary); background: rgba(255,255,255,0.08); }
+        .card-style { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 30px; transition: 0.4s; height: 100%; }
+        .card-style:hover { transform: translateY(-5px); box-shadow: var(--shadow-glow); }
 
         .cta-button {
-            display: inline-block; padding: 14px 35px; border-radius: 50px;
+            display: inline-block; padding: 14px 30px; border-radius: 50px;
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: white; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: white; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; text-align: center;
         }
-        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--color-primary); }
+        .cta-button:hover { filter: brightness(1.2); transform: scale(1.05); }
 
-        /* Products */
-        .product-img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.5s; }
-        .card-style:hover .product-img { transform: scale(1.05); }
+        .product-img { width: 100%; height: 220px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
 
-        /* Tarot */
-        .tarot-box { text-align: center; max-width: 650px; margin: 0 auto; }
-        .tarot-answer { font-size: 3rem; font-weight: 900; margin-top: 20px; animation: glow 1.5s infinite alternate; }
-        @keyframes glow { from { text-shadow: 0 0 5px #fff; } to { text-shadow: 0 0 20px var(--color-accent); } }
+        .tarot-answer { font-size: 2.5rem; font-weight: 900; margin-top: 15px; }
+        .yes-answer { color: #00BFA5; }
+        .no-answer { color: #FF5252; }
+        .maybe-answer { color: #FFD600; }
 
         /* Modal */
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
-        .modal-content { background: var(--color-bg-light); margin: 8% auto; padding: 40px; border: 1px solid var(--color-accent); width: 90%; max-width: 480px; border-radius: var(--radius); position: relative; animation: slideDown 0.4s ease; }
-        @keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-modal { position: absolute; right: 25px; top: 20px; font-size: 32px; cursor: pointer; color: #aaa; transition: 0.3s; }
-        .close-modal:hover { color: white; transform: rotate(90deg); }
+        .modal { display: none; position: fixed; z-index: 3000; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
+        .modal-content { background: var(--color-bg-light); margin: 10% auto; padding: 30px; width: 90%; max-width: 450px; border-radius: var(--radius); border: 1px solid var(--color-accent); }
+        .pay-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; margin-bottom: 10px; }
+        .pay-info { display: flex; align-items: center; gap: 10px; }
+        .pay-info img { width: 40px; height: 40px; border-radius: 8px; }
+        .copy-btn { background: var(--color-primary); color: white; border: none; padding: 5px 12px; border-radius: 5px; cursor: pointer; }
 
-        /* Mobile Nav */
+        /* Mobile Bottom Nav */
         .mobile-nav {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 450px;
-            background: rgba(20, 10, 50, 0.95);
-            backdrop-filter: blur(20px); display: none; justify-content: space-around;
-            padding: 15px; z-index: 2000; border: 1px solid var(--color-primary);
-            border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            width: 90%; max-width: 400px; background: rgba(20, 10, 50, 0.9);
+            backdrop-filter: blur(10px); display: none; justify-content: space-around;
+            padding: 12px; z-index: 2000; border-radius: 50px; border: 1px solid var(--color-primary);
         }
-        .mobile-nav a { color: #888; font-size: 1.4rem; transition: 0.3s; }
-        .mobile-nav a.active { color: var(--color-accent); }
-
-        /* Utility */
-        .loading-text { font-style: italic; color: var(--color-secondary); animation: blink 1s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .mobile-nav a { color: #888; font-size: 1.2rem; transition: 0.3s; }
+        .mobile-nav a:hover { color: var(--color-accent); }
 
         @media (max-width: 768px) {
-            .veda-dashboard { grid-template-columns: 1fr; margin-top: -40px; padding: 25px; }
-            .clock-section { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 25px; padding-right: 0; }
+            .veda-dashboard { grid-template-columns: 1fr; margin-top: -40px; }
+            .clock-section { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; padding-right: 0; }
             nav ul { display: none; }
             .mobile-nav { display: flex; }
-            .announcement-container { height: 320px; }
-            .digital-clock { font-size: 2.8rem; }
-            .section-title { font-size: 2rem; }
+            .announcement-container { height: 300px; }
+            .section-title { font-size: 1.8rem; }
+            .digital-clock { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -165,20 +155,20 @@
 <body>
 
     <div class="marquee-bar">
-        <marquee>✨ ၂၀၂၆ ခုနှစ်၊ ဖေဖော်ဝါရီလ - လုံးစုံများစွာသတ္တဝါ ချမ်းသာကိုယ်စိတ်မြဲပါစေ။ ဆရာထူးသစ်စျာန်၏ ဂမ္ဘီရလောကီဝန်ဆောင်မှုများ ✨</marquee>
+        <marquee behavior="scroll" direction="left">✨ လုံးစုံများစွာသတ္တဝါ ချမ်းသာကိုယ်စိတ်မြဲပါစေ။ ✨ ဆရာထူးသစ်စျာန် (ထူးလိုတရ) ဂမ္ဘီရလောကီပညာ✨</marquee>
     </div>
 
     <header>
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="https://i.ibb.co/zWgqSBxJ/IMG-7899.jpg" alt="Logo">
-                <span>ထူးလိုတရ</span>
+                <img src="https://i.ibb.co/GvZ2hzsZ/IMG-7899.jpg" alt="Logo">
+                <span>ဆရာထူးသစ်စျာန်</span>
             </a>
             <nav>
                 <ul>
-                    <li><a href="#home">ပင်မ</a></li>
+                    <li><a href="#home">မူလ</a></li>
                     <li><a href="#mmcal">ပြက္ခဒိန်</a></li>
-                    <li><a href="#baydin">ဗေဒင်</a></li>
+                    <li><a href="#baydin">ပညာဒါန</a></li>
                     <li><a href="#products">အဆောင်ပစ္စည်း</a></li>
                     <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
                 </ul>
@@ -188,8 +178,8 @@
 
     <div class="container">
         <div class="announcement-container" id="home">
-            <div class="slide active"><img src="https://i.ibb.co/Xkj5QY8R/IMG-9938.jpg" alt="Slide 1"></div>
-            <div class="slide"><img src="https://i.ibb.co/zWgqSBxJ/IMG-6693.jpg" alt="Slide 2"></div>
+            <div class="slide active"><img src="https://i.ibb.co/Xkj5QY8R/IMG-9938.jpg" alt="Banner 1"></div>
+            <div class="slide"><img src="https://i.ibb.co/zWgqSBxJ/IMG-6693.jpg" alt="Banner 2"></div>
             <div class="slider-overlay"></div>
         </div>
 
@@ -202,23 +192,23 @@
             
             <div class="veda-info-grid">
                 <div class="veda-item">
-                    <label><i class="fas fa-moon"></i> နက္ခတ်</label>
-                    <span id="nakkhat">တွက်ချက်နေသည်...</span>
+                    <label><i class="fas fa-moon"></i> လာဘ် / နတ်</label>
+                    <span id="nakkhat">...</span>
                 </div>
                 <div class="veda-item">
-                    <label><i class="fas fa-sun"></i> ယောဂ</label>
-                    <span id="yoga">တွက်ချက်နေသည်...</span>
+                    <label><i class="fas fa-sun"></i> တိထီ / အသေးစိတ်</label>
+                    <span id="yoga">...</span>
                 </div>
                 <div class="veda-item">
-                    <label><i class="fas fa-star"></i> မင်္ဂလာအခါ</label>
-                    <span id="akhar">တွက်ချက်နေသည်...</span>
+                    <label><i class="fas fa-star"></i> နေ့ရက်</label>
+                    <span id="akhar">...</span>
                 </div>
                 <div class="veda-item">
-                    <label><i class="fas fa-compass"></i> ပြက္ခဒိန်</label>
-                    <span id="razar">တွက်ချက်နေသည်...</span>
+                    <label><i class="fas fa-compass"></i> အခါပေး</label>
+                    <span id="razar">...</span>
                 </div>
                 <div style="grid-column: span 2; background: rgba(124, 77, 255, 0.1); padding: 15px; border-radius: 12px; border: 1px dashed var(--color-primary); font-size: 0.9rem;">
-                    <strong style="color: var(--color-accent);"><i class="fas fa-magic"></i> ယနေ့လမ်းညွှန်:</strong>
+                    <strong style="color: var(--color-accent);"><i class="fas fa-magic"></i> နေထွက်ချိန် / နေဝင်ချိန်:</strong>
                     <p id="adviceText" style="margin-top: 5px;">တွက်ချက်နေသည်...</p>
                 </div>
             </div>
@@ -229,11 +219,11 @@
         <div class="container">
             <h2 class="section-title">🔮 ပညာဒါန ဗေဒင်ဟောခန်း</h2>
             <div class="card-style" style="text-align: center; max-width: 850px; margin: 0 auto;">
-                <p id="dailyMotto" style="font-size: 1.3rem; font-style: italic; color: var(--color-accent); margin-bottom: 30px;">"ကံတရားသည် ကြိုးစားသူ၏ လက်ဝယ်တွင်ရှိသည်"</p>
+                <p id="dailyMotto" style="font-size: 1.2rem; font-style: italic; color: var(--color-accent); margin-bottom: 30px;">"ကံတရားသည် ကြိုးစားသူ၏ လက်ဝယ်တွင်ရှိသည်"</p>
                 
                 <div style="margin-bottom: 25px;">
                     <label style="display:block; margin-bottom:12px; font-weight: 600;">သင့်မွေးနေ့ကို ရွေးချယ်ပါ</label>
-                    <select id="userDay" style="padding: 14px; border-radius: 30px; background: rgba(0,0,0,0.6); color: #fff; border: 2px solid var(--color-primary); width: 250px; text-align: center; outline:none; cursor: pointer; font-size: 1rem;">
+                    <select id="userDay" style="padding: 12px 20px; border-radius: 30px; background: rgba(0,0,0,0.6); color: #fff; border: 2px solid var(--color-primary); width: 220px; outline:none; cursor: pointer; appearance: none; -webkit-appearance: none; text-align: center;">
                         <option value="0">တနင်္ဂနွေ</option>
                         <option value="1">တနင်္လာ</option>
                         <option value="2">အင်္ဂါ</option>
@@ -247,27 +237,27 @@
                     <i class="fas fa-search"></i> ဟောကိန်းထုတ်ရန်
                 </button>
 
-                <div id="fortuneResult" style="display:none; margin-top: 40px; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left; background: rgba(0,0,0,0.2); border-radius: 15px;">
-                    <h3 id="fortuneTitle" style="color: var(--color-accent); margin-bottom: 20px; text-align: center; font-family: var(--font-serif); font-size: 1.6rem;"></h3>
-                    <p id="fortuneText" style="line-height: 2; color: #eee; font-size: 1.05rem;"></p>
+                <div id="fortuneResult" style="display:none; margin-top: 40px; padding: 25px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left; background: rgba(0,0,0,0.2); border-radius: 15px;">
+                    <h3 id="fortuneTitle" style="color: var(--color-accent); margin-bottom: 15px; text-align: center;"></h3>
+                    <div id="fortuneText" style="line-height: 1.8; color: #eee; font-size: 1rem;"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tarot" style="background: rgba(0,0,0,0.3);">
+    <section id="tarot" style="background: rgba(0,0,0,0.2);">
         <div class="container">
             <h2 class="section-title">🃏 တားရော့ ပညာဒါန</h2>
-            <div class="card-style tarot-box">
-                <p style="margin-bottom: 25px; color: #bbb;">"Yes/No" သိလိုသော မေးခွန်းတစ်ခုကို စိတ်ထဲမှ မှန်းဆပြီး နှိပ်ပါ။</p>
-                <textarea id="tarotQuestion" rows="2" placeholder="ဥပမာ - ဒီနေ့ အလုပ်ကိစ္စ အောင်မြင်မလား?" style="width:100%; padding:20px; border-radius:15px; background:rgba(0,0,0,0.4); color:white; border:1px solid var(--color-primary); margin-bottom:25px; outline:none; font-size: 1rem;"></textarea>
+            <div class="card-style" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p style="margin-bottom: 20px; color: #bbb;">"Yes/No" သိလိုသော မေးခွန်းတစ်ခုကို စိတ်ထဲမှ မှန်းဆပြီး နှိပ်ပါ။</p>
+                <textarea id="tarotQuestion" rows="2" placeholder="ဥပမာ - ဒီနေ့ အလုပ်ကိစ္စ အောင်မြင်မလား?" style="width:100%; padding:15px; border-radius:15px; background:rgba(0,0,0,0.4); color:white; border:1px solid var(--color-primary); margin-bottom:20px; outline:none; resize: none;"></textarea>
                 <button class="cta-button" onclick="askTarot()">
                     <i class="fas fa-hand-sparkles"></i> ကံကြမ္မာကို စစ်ဆေးမည်
                 </button>
                 
-                <div id="tarotResult" style="display:none; margin-top:35px; padding: 20px; border: 1px dashed var(--color-accent); border-radius: 15px;">
+                <div id="tarotResult" style="display:none; margin-top:30px; padding: 20px; border: 1px dashed var(--color-accent); border-radius: 15px; background: rgba(0,0,0,0.3);">
                     <div id="tarotAnswer" class="tarot-answer"></div>
-                    <p id="tarotDesc" style="margin-top:15px; font-style:italic; color:#00BFA5; font-size: 1.1rem;"></p>
+                    <p id="tarotDesc" style="margin-top:10px; font-style:italic; color:var(--color-secondary);"></p>
                 </div>
             </div>
         </div>
@@ -275,28 +265,25 @@
 
     <section id="products">
         <div class="container">
-            <h2 class="section-title">🛡️ အဆောင်လက်ဖွဲ့များ</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <h2 class="section-title">အဆောင်လက်ဖွဲ့များ</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                 <div class="card-style" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=500&auto=format&fit=crop" alt="Money Oil" class="product-img">
-                    <h3 style="margin-bottom: 10px;">လာဘ်ရွှင် ငွေဝင်ဆေးဆီ</h3>
-                    <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 15px;">စီးပွားရေး အဆင်ပြေစေရန်နှင့် လာဘ်လာဘပွင့်လန်းစေရန် အထူးစီမံထားပါသည်။</p>
-                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.5rem; margin-bottom: 25px;">၅၀,၀၀၀ ကျပ်</p>
+                    <img src="https://i.ibb.co.com/k6kLCkSr/IMG-0214.jpg" alt="Money Oil" class="product-img">
+                    <h3>လာဘ်ရွှင် ငွေဝင်ဆေးဆီ</h3>
+                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.4rem; margin: 15px 0;">၅၀,၀၀၀ ကျပ်</p>
                     <button class="cta-button" onclick="openPayment('လာဘ်ရွှင် ငွေဝင်ဆေးဆီ', '50,000')">ဝယ်ယူရန်</button>
                 </div>
                 <div class="card-style" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?q=80&w=500&auto=format&fit=crop" alt="Love Amulet" class="product-img">
-                    <h3 style="margin-bottom: 10px;">မေတ္တာကံမြင့် လက်ဖွဲ့</h3>
-                    <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 15px;">လူချစ်လူခင်ပေါများစေရန်၊ အိမ်ထောင်ရေးနှင့် အချစ်ရေး သာယာစေရန်။</p>
-                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.5rem; margin-bottom: 25px;">၁၂၀,၀၀၀ ကျပ်</p>
-                    <button class="cta-button" onclick="openPayment('မေတ္တာကံမြင့် လက်ဖွဲ့', '120,000')">ဝယ်ယူရန်</button>
+                    <img src="https://images.unsplash.com/photo-1515562141207-7a18b5ce7142?q=80&w=500" alt="Love Amulet" class="product-img">
+                    <h3>မေတ္တာကံမြင့် လက်ဖွဲ့</h3>
+                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.4rem; margin: 15px 0;">၇၀,၀၀၀ ကျပ်</p>
+                    <button class="cta-button" onclick="openPayment('မေတ္တာကံမြင့် လက်ဖွဲ့', '70,000')">ဝယ်ယူရန်</button>
                 </div>
                 <div class="card-style" style="text-align: center;">
-                    <img src="https://images.unsplash.com/photo-1590076215667-873d6f303457?q=80&w=500&auto=format&fit=crop" alt="Protection" class="product-img">
-                    <h3 style="margin-bottom: 10px;">ဘေးကင်း မန္တန်အစီအမံ</h3>
-                    <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 15px;">ဘေးအန္တရာယ်ကင်းဝေးစေရန်နှင့် အနှောင့်အယှက်များမှ ကာကွယ်ရန်။</p>
-                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.5rem; margin-bottom: 25px;">၃၆,၀၀၀ ကျပ်</p>
-                    <button class="cta-button" onclick="openPayment('ဘေးကင်း မန္တန်အစီအမံ', '36,000')">ဝယ်ယူရန်</button>
+                    <img src="https://images.unsplash.com/photo-1590076215667-873d6f303457?q=80&w=500" alt="Protection" class="product-img">
+                    <h3>အစီအမံဂဏ္ဍ</h3>
+                    <p style="color: var(--color-accent); font-weight: 800; font-size: 1.4rem; margin: 15px 0;">****** ကျပ်</p>
+                    <button class="cta-button" onclick="openPayment('ဘေးကင်း မန္တန်အစီအမံ', '00,000')">ဝယ်ယူရန်</button>
                 </div>
             </div>
         </div>
@@ -305,37 +292,34 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">📞 ဆက်သွယ်ရန်</h2>
-            <div class="card-style" style="max-width: 650px; margin: 0 auto; text-align: center;">
-                <h3 style="margin-bottom: 15px; font-size: 1.8rem;">ဆရာထူးသစ်စျာန်</h3>
-                <p style="margin-bottom: 35px; color: #ccc;">ဗေဒင်နှင့် လောကီကိစ္စရပ်များ တိုက်ရိုက်ဆွေးနွေးလိုပါက အောက်ပါ Channels များမှ ဆက်သွယ်နိုင်ပါသည်။</p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px;">
-                    <a href="tel:09688566997" title="Phone Call" style="background: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.5rem; transition: 0.3s;"><i class="fas fa-phone"></i></a>
-                    <a href="https://t.me/htoothitzyan" target="_blank" title="Telegram" style="background: #0088cc; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.facebook.com/share/1HKMHfvHM4/" target="_blank" title="Facebook" style="background: #1877f2; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-facebook-f"></i></a>
-                    <a href="viber://chat?number=09688566997" title="Viber" style="background: #7360f2; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-viber"></i></a>
+            <div class="card-style" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <h3 style="margin-bottom: 15px; font-size: 1.6rem;">ဆရာထူးသစ်စျာန်</h3>
+                <p style="margin-bottom: 30px; color: #ccc;">ဗေဒင်နှင့် လောကီကိစ္စရပ်များ တိုက်ရိုက်ဆွေးနွေးလိုပါက ဆက်သွယ်နိုင်ပါသည်။</p>
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <a href="tel:09688566997" style="background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #333;"><i class="fas fa-phone"></i></a>
+                    <a href="https://t.me/htoothitzyan" target="_blank" style="background: #0088cc; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/share/1HKMHfvHM4/" target="_blank" style="background: #1877f2; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <p style="margin-top: 35px; font-weight: bold; color: var(--color-accent); font-size: 1.2rem;">Phone/Viber: 09688566997</p>
+                <p style="margin-top: 25px; font-weight: bold; color: var(--color-accent); font-size: 1.1rem;">Phone/Viber: 09688566997</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container" style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container" style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); color: #888;">
             <p>&copy; 2026 ဂမ္ဘီရလောကီဆရာထူးသစ်စျာန်. All rights reserved.</p>
-            <p style="font-size: 0.85rem; color: #666; margin-top: 15px; letter-spacing: 1px;">Powered by <span style="color: var(--color-secondary);">BABYBOSS Digital</span></p>
         </div>
     </footer>
 
     <div id="paymentModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closePayment()">&times;</span>
-            <h3 style="color: var(--color-accent); text-align: center; margin-bottom: 20px; font-size: 1.5rem;">🧾 ငွေပေးချေရန်</h3>
-            <p id="orderDetail" style="text-align: center; margin-bottom: 25px; font-size: 1rem; color: #00BFA5; font-weight: bold;"></p>
+            <h3 style="color: var(--color-accent); text-align: center; margin-bottom: 15px;">🧾 ငွေပေးချေရန်</h3>
+            <p id="orderDetail" style="text-align: center; margin-bottom: 20px; color: var(--color-secondary); font-weight: bold;"></p>
             
             <div class="pay-row">
                 <div class="pay-info">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/KBZ_Pay_Logo.svg/1024px-KBZ_Pay_Logo.svg.png" alt="KPay">
-                    <div><strong>KBZ Pay</strong><br><span>09688566997</span></div>
+                    <div><strong>KBZ Pay</strong><br>09688566997</div>
                 </div>
                 <button class="copy-btn" onclick="copyText('09688566997')">Copy</button>
             </div>
@@ -343,14 +327,15 @@
             <div class="pay-row">
                 <div class="pay-info">
                     <img src="https://www.wavemoney.com.mm/assets/img/logo.png" alt="Wave">
-                    <div><strong>Wave Money</strong><br><span>09688566997</span></div>
+                    <div><strong>Wave Money</strong><br>09688566997</div>
                 </div>
                 <button class="copy-btn" onclick="copyText('09688566997')">Copy</button>
             </div>
 
-            <a id="confirmBtn" href="#" target="_blank" class="cta-button" style="width: 100%; display: block; text-align: center; margin-top: 30px;">
-                <i class="fab fa-facebook-messenger"></i> ငွေလွှဲပြေစာ ပို့ပေးရန်
-            </a>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="cta-button" onclick="closePayment()" style="background: #444; flex: 1;">ပိတ်ရန်</button>
+                <a id="confirmBtn" href="#" target="_blank" class="cta-button" style="flex: 2; text-align: center;">ဘောက်ချာပို့ရန်</a>
+            </div>
         </div>
     </div>
 
@@ -363,264 +348,45 @@
     </div>
 
     <script>
-        // Real-time Clock & Calendar Logic
+        // ၂၀၂၆ ဖေဖော်ဝါရီလ Data များ
         const dailyVedaData = {
-            1: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်နေ့",
-                dayName: "တနင်္ဂနွေနေ့",
-                luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်",
-                status: "ပြဿဒါး .. လက်သမားမြေခံ",
-                details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၁၄)လုံး ရိတ္တာတိထီ၊ တနင်္ဂနွေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၅:၃၆) | ညတာ (၁၂:၄၄:၂၄)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၁၁:၄၀) | နေထွက် (၀၆:၃၅:၄၀) | နေဝင် (၁၇:၅၁:၁၇)"
-            },
-            2: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁) ရက်",
-                dayName: "တနင်္လာနေ့",
-                luck: "အရှေ့လာဘ် / အနောက် နတ်",
-                status: "သာမန်ရက် .. ကမ္ဘာ့ရန်ရက်",
-                details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၁၅)လုံး ဘဒြာတိထီ၊ တနင်္လာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၆:၁၇) | ညတာ (၁၂:၄၃:၄၃)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၁၁:၁၇) | နေထွက် (၀၆:၃၅:၁၇) | နေဝင် (၁၇:၅၁:၁၇)"
-            },
-            3: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၂) ရက်",
-                dayName: "အင်္ဂါနေ့",
-                luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်",
-                status: "ရက်ရာဇာ .. မြေခံဘီလူး",
-                details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၁)လုံး နန္ဒာတိထီ၊ အင်္ဂါမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၆:၅၈) | ညတာ (၁၂:၄၃:၀၂)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၁၀:၅၄) | နေထွက် (၀၆:၃၄:၅၄) | နေဝင် (၁၇:၅၁:၅၂)"
-            },
-            4: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၃) ရက်",
-                dayName: "ဗုဒ္ဓဟူးနေ့",
-                luck: "တောင်လာဘ် / အနောက်မြောက် နတ်",
-                status: "ပြဿဒါး .. လက်သမားမြေခံ",
-                details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၂)လုံး ဘဒြာတိထီ၊ ဗုဒ္ဓဟူးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၇:၃၉) | ညတာ (၁၂:၄၂:၂၁)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၁၀:၃၀) | နေထွက် (၀၆:၃၄:၃၀) | နေဝင် (၁၇:၅၂:၀၉)"
-            },
-            5: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၄) ရက်",
-                dayName: "ကြာသပတေးနေ့",
-                luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်",
-                status: "သာမန်ရက် .. မြေခံဘီလူး",
-                details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၃)လုံး ဇယျာတိထီ၊ ကြာသပတေးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၈:၂၁) | ညတာ (၁၂:၄၁:၃၉)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၁၀:၀၆) | နေထွက် (၀၆:၃၄:၀၆) | နေဝင် (၁၇:၅၂:၂၇)"
-            },
-            6: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၅) ရက်",
-                dayName: "သောကြာနေ့",
-                luck: "အနောက်လာဘ် / အရှေ့ နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၄)လုံး ရိတ္တာတိထီ၊ သောကြာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၉:၀၃) | ညတာ (၁၂:၄၀:၅၇)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၉:၄၁) | နေထွက် (၀၆:၃၃:၄၁) | နေဝင် (၁၇:၅၂:၄၄)"
-            },
-            7: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၆) ရက်",
-                dayName: "စနေနေ့",
-                luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၅)လုံး ပုဏ္ဏာတိထီ၊ စနေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၁၉:၄၆) | ညတာ (၁၂:၄၀:၁၄)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၉:၁၆) | နေထွက် (၀၆:၃၃:၁၆) | နေဝင် (၁၇:၅၃:၀၂)"
-            },
-            8: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၇) ရက်",
-                dayName: "တနင်္ဂနွေနေ့",
-                luck: "မြောက်လာဘ် / တောင် နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၆)လုံး နန္ဒာတိထီ၊ တနင်္ဂနွေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၀:၂၉) | ညတာ (၁၂:၃၉:၃၁)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၈:၅၁) | နေထွက် (၀၆:၃၂:၅၁) | နေဝင် (၁၇:၅၃:၂၀)"
-            },
-            9: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၈) ရက်",
-                dayName: "တနင်္လာနေ့",
-                luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၇)လုံး ဘဒြာတိထီ၊ တနင်္လာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၁:၁၂) | ညတာ (၁၂:၃၈:၄၈)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၈:၂၅) | နေထွက် (၀၆:၃၂:၂၅) | နေဝင် (၁၇:၅၃:၃၇)"
-            },
-            10: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၉) ရက်",
-                dayName: "အင်္ဂါနေ့",
-                luck: "အရှေ့လာဘ် / အနောက် နတ်",
-                status: "သာမန်ရက် .. လက်သမားမြေခံ",
-                details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၈)လုံး ဇယျာတိထီ၊ အင်္ဂါမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၁:၅၅) | ညတာ (၁၂:၃၈:၀၅)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၇:၅၉) | နေထွက် (၀၆:၃၁:၅၉) | နေဝင် (၁၇:၅၃:၅၄)"
-            },
-            11: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၀) ရက်",
-                dayName: "ဗုဒ္ဓဟူးနေ့",
-                luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်",
-                status: "ရက်ရာဇာ .. မြေခံဘီလူး",
-                details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၉)လုံး ရိတ္တာတိထီ၊ ဗုဒ္ဓဟူးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၂:၃၉) | ညတာ (၁၂:၃၇:၂၁)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၇:၃၃) | နေထွက် (၀၆:၃၁:၃၃) | နေဝင် (၁၇:၅၄:၁၂)"
-            },
-            12: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၁) ရက်",
-                dayName: "ကြာသပတေးနေ့",
-                luck: "တောင်လာဘ် / အနောက်မြောက် နတ်",
-                status: "ပြဿဒါး .. လက်သမားမြေခံ",
-                details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၁၀)လုံး ပုဏ္ဏာတိထီ၊ ကြာသပတေးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၃:၂၃) | ညတာ (၁၂:၃၆:၃၇)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၇:၀၆) | နေထွက် (၀၆:၃၁:၀၆) | နေဝင် (၁၇:၅၄:၂၉)"
-            },
-            13: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၂) ရက်",
-                dayName: "သောကြာနေ့",
-                luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်",
-                status: "သာမန်ရက် .. မြေခံဘီလူး",
-                details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၁၁)လုံး နန္ဒာတိထီ၊ သောကြာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၄:၀၇) | ညတာ (၁၂:၃၅:၅၃)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၆:၃၉) | နေထွက် (၀၆:၃၀:၃၉) | နေဝင် (၁၇:၅၄:၄၆)"
-            },
-            14: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၃) ရက်",
-                dayName: "စနေနေ့",
-                luck: "အနောက်လာဘ် / အရှေ့ နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၁၂)လုံး ဘဒြာတိထီ၊ စနေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၄:၅၁) | ညတာ (၁၂:၃၅:၀၉)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၆:၁၂) | နေထွက် (၀၆:၃၀:၁၂) | နေဝင် (၁၇:၅၅:၀၃)"
-            },
-            15: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၄) ရက်",
-                dayName: "တနင်္ဂနွေနေ့",
-                luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၁၃)လုံး ဇယျာတိထီ၊ တနင်္ဂနွေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၅:၃၆) | ညတာ (၁၂:၃၄:၂၄)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၅:၄၄) | နေထွက် (၀၆:၂၉:၄၄) | နေဝင် (၁၇:၅၅:၂၀)"
-            },
-            16: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလကွယ်နေ့",
-                dayName: "တနင်္လာနေ့",
-                luck: "မြောက်လာဘ် / တောင် နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၁၄)လုံး ရိတ္တာတိထီ၊ တနင်္လာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၆:၂၁) | ညတာ (၁၂:၃၃:၃၉)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၅:၁၇) | နေထွက် (၀၆:၂၉:၁၇) | နေဝင် (၁၇:၅၅:၃၈)"
-            },
-            17: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁) ရက်",
-                dayName: "အင်္ဂါနေ့",
-                luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၁၅)လုံး ပုဏ္ဏာတိထီ၊ အင်္ဂါမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၇:၀၆) | ညတာ (၁၂:၃၂:၅၄)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၄:၄၉) | နေထွက် (၀၆:၂၈:၄၉) | နေဝင် (၁၇:၅၅:၅၅)"
-            },
-            18: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၂) ရက်",
-                dayName: "ဗုဒ္ဓဟူးနေ့",
-                luck: "အရှေ့လာဘ် / အနောက် နတ်",
-                status: "သာမန်ရက် .. လက်သမားမြေခံ",
-                details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၁)လုံး နန္ဒာတိထီ၊ ဗုဒ္ဓဟူးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:27:51) | ညတာ (၁၂:၃၂:၀၉)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၄:၂၀) | နေထွက် (၀၆:၂၈:၂၀) | နေဝင် (၁၇:၅၆:၁၁)"
-            },
-            19: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၃) ရက်",
-                dayName: "ကြာသပတေးနေ့",
-                luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်",
-                status: "ရက်ရာဇာ .. မြေခံဘီလူး",
-                details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၂)လုံး ဘဒြာတိထီ၊ ကြာသပတေးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၈:၃၇) | ညတာ (၁၂:၃၁:၂၃)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၃:၅၂) | နေထွက် (၀၆:၂၇:၅၂) | နေဝင် (၁၇:၅၆:၂၉)"
-            },
-            20: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၄) ရက်",
-                dayName: "သောကြာနေ့",
-                luck: "တောင်လာဘ် / အနောက်မြောက် နတ်",
-                status: "ပြဿဒါး .. လက်သမားမြေခံ",
-                details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၃)လုံး ဇယျာတိထီ၊ သောကြာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၂၉:၂၃) | ညတာ (၁၂:၃၀:၃၇)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၃:၂၃) | နေထွက် (၀၆:၂၇:၂၃) | နေဝင် (၁၇:၅၆:၄၆)"
-            },
-            21: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၅) ရက်",
-                dayName: "စနေနေ့",
-                luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်",
-                status: "သာမန်ရက် .. မြေခံဘီလူး",
-                details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၄)လုံး ရိတ္တာတိထီ၊ စနေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၀:၀၉) | ညတာ (၁၂:၂၉:၅၁)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၂:၅၄) | နေထွက် (၀၆:၂၆:၅၄) | နေဝင် (၁၇:၅၇:၀၃)"
-            },
-            22: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၆) ရက်",
-                dayName: "တနင်္ဂနွေနေ့",
-                luck: "အနောက်လာဘ် / အရှေ့ နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၅)လုံး ပုဏ္ဏာတိထီ၊ တနင်္ဂနွေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၀:၅၅) | ညတာ (၁၂:၂၉:၀၅)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၂:၂၄) | နေထွက် (၀၆:၂၆:၂၄) | နေဝင် (၁၇:၅၇:၁၉)"
-            },
-            23: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၇) ရက်",
-                dayName: "တနင်္လာနေ့",
-                luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၆)လုံး နန္ဒာတိထီ၊ တနင်္လာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၁:၄၁) | ညတာ (၁၂:၂၈:၁၉)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၁:၅၅) | နေထွက် (၀၆:၂၅:၅၅) | နေဝင် (၁၇:၅၇:၃၆)"
-            },
-            24: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၈) ရက်",
-                dayName: "အင်္ဂါနေ့",
-                luck: "မြောက်လာဘ် / တောင် နတ်",
-                status: "ရက်ရာဇာ .. လက်သမားမြေခံ",
-                details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၇)လုံး ဘဒြာတိထီ၊ အင်္ဂါမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၂:၂၇) | ညတာ (၁၂:၂၇:၃၃)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၁:၂၅) | နေထွက် (၀၆:၂၅:၂၅) | နေဝင် (၁၇:၅၇:၅၂)"
-            },
-            25: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၉) ရက်",
-                dayName: "ဗုဒ္ဓဟူးနေ့",
-                luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်",
-                status: "ပြဿဒါး .. မြေခံဘီလူး",
-                details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၈)လုံး ဇယျာတိထီ၊ ဗုဒ္ဓဟူးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၃:၁၄) | ညတာ (၁၂:၂၆:၄၆)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀ ၀:၅၄) | နေထွက် (၀၆:၂၄:၅၄) | နေဝင် (၁၇:၅၈:၀၈)"
-            },
-            26: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၀) ရက်",
-                dayName: "ကြာသပတေးနေ့",
-                luck: "အရှေ့လာဘ် / အနောက် နတ်",
-                status: "သာမန်ရက် .. လက်သမားမြေခံ",
-                details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၉)လုံး ရိတ္တာတိထီ၊ ကြာသပတေးမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၄:၀၀) | ညတာ (၁၂:၂၆:၀၀)",
-                sunRiseSet: "အရုဏ်တက် (၀၆:၀၀:၂၄) | နေထွက် (၀၆:၂၄:၂၄) | နေဝင် (၁၇:၅၈:၂၄)"
-            },
-            27: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၁) ရက်",
-                dayName: "သောကြာနေ့",
-                luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်",
-                status: "ရက်ရာဇာ .. မြေခံဘီလူး",
-                details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၁၀)လုံး ပုဏ္ဏာတိထီ၊ သောကြာမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၄:၄၇) | ညတာ (၁၂:၂၅:၁၃)",
-                sunRiseSet: "အရုဏ်တက် (၀၅:၅၉:၅၃) | နေထွက် (၀၆:၂၃:၅၃) | နေဝင် (၁၇:၅၈:၄၀)"
-            },
-            28: {
-                burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၂) ရက်",
-                dayName: "စနေနေ့",
-                luck: "တောင်လာဘ် / အနောက်မြောက် နတ်",
-                status: "ပြဿဒါး .. လက်သမားမြေခံ",
-                details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၁၁)လုံး နန္ဒာတိထီ၊ စနေမြေခံ ဂြဟဇာ",
-                sunTime: "နေ့တာ (၁၁:၃၅:၃၃) | ညတာ (၁၂:၂၄:၂၇)",
-                sunRiseSet: "အရုဏ်တက် (၀၅:၅၉:၂၂) | နေထွက် (၀၆:၂၃:၂၂) | နေဝင် (၁၇:၅၈:၅၅)"
-            }
+            1: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်နေ့", dayName: "တနင်္ဂနွေနေ့", luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်", status: "ပြဿဒါး .. လက်သမားမြေခံ", details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၁၄)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၃၅) | ဝင် (၁၇:၅၁)" },
+            2: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁) ရက်", dayName: "တနင်္လာနေ့", luck: "အရှေ့လာဘ် / အနောက် နတ်", status: "သာမန်ရက် .. ကမ္ဘာ့ရန်ရက်", details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၁၅)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၃၅) | ဝင် (၁၇:၅၁)" },
+            3: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၂) ရက်", dayName: "အင်္ဂါနေ့", luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်", status: "ရက်ရာဇာ .. မြေခံဘီလူး", details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၁)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၃၄) | ဝင် (၁၇:၅၁)" },
+            4: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၃) ရက်", dayName: "ဗုဒ္ဓဟူးနေ့", luck: "တောင်လာဘ် / အနောက်မြောက် နတ်", status: "ပြဿဒါး .. လက်သမားမြေခံ", details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၂)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၃၄) | ဝင် (၁၇:၅၂)" },
+            5: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၄) ရက်", dayName: "ကြာသပတေးနေ့", luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်", status: "သာမန်ရက် .. မြေခံဘီလူး", details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၃)လုံး ဇယျာတိထီ", sun: "ထွက် (၀၆:၃၄) | ဝင် (၁၇:၅၂)" },
+            6: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၅) ရက်", dayName: "သောကြာနေ့", luck: "အနောက်လာဘ် / အရှေ့ နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၄)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၃၃) | ဝင် (၁၇:၅၂)" },
+            7: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၆) ရက်", dayName: "စနေနေ့", luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၅)လုံး ပုဏ္ဏာတိထီ", sun: "ထွက် (၀၆:၃၃) | ဝင် (၁၇:၅၃)" },
+            8: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၇) ရက်", dayName: "တနင်္ဂနွေနေ့", luck: "မြောက်လာဘ် / တောင် နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၆)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၂၉) | ဝင် (၁၇:၅၃)" },
+            9: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၈) ရက်", dayName: "တနင်္လာနေ့", luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၇)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၃၂) | ဝင် (၁၇:၅၃)" },
+            10: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၉) ရက်", dayName: "အင်္ဂါနေ့", luck: "အရှေ့လာဘ် / အနောက် နတ်", status: "သာမန်ရက် .. လက်သမားမြေခံ", details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၈)လုံး ဇယျာတိထီ", sun: "ထွက် (၀၆:၃၁) | ဝင် (၁၇:၅၃)" },
+            11: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၀) ရက်", dayName: "ဗုဒ္ဓဟူးနေ့", luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်", status: "ရက်ရာဇာ .. မြေခံဘီလူး", details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၉)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၃၁) | ဝင် (၁၇:၅၄)" },
+            12: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၁) ရက်", dayName: "ကြာသပတေးနေ့", luck: "တောင်လာဘ် / အနောက်မြောက် နတ်", status: "ပြဿဒါး .. လက်သမားမြေခံ", details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၁၀)လုံး ပုဏ္ဏာတိထီ", sun: "ထွက် (၀၆:၃၁) | ဝင် (၁၇:၅၄)" },
+            13: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၂) ရက်", dayName: "သောကြာနေ့", luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်", status: "သာမန်ရက် .. မြေခံဘီလူး", details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၁၁)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၃၀) | ဝင် (၁၇:၅၄)" },
+            14: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၃) ရက်", dayName: "စနေနေ့", luck: "အနောက်လာဘ် / အရှေ့ နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၁၂)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၃၀) | ဝင် (၁၇:၅၅)" },
+            15: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလပြည့်ကျော် (၁၄) ရက်", dayName: "တနင်္ဂနွေနေ့", luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၁၃)လုံး ဇယျာတိထီ", sun: "ထွက် (၀၆:၂၉) | ဝင် (၁၇:၅၅)" },
+            16: { burmeseDate: "၁၃၈၇ ခု၊ တပို့တွဲလကွယ်နေ့", dayName: "တနင်္လာနေ့", luck: "မြောက်လာဘ် / တောင် နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၁၄)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၂၉) | ဝင် (၁၇:၅၅)" },
+            17: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁) ရက်", dayName: "အင်္ဂါနေ့", luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၁၅)လုံး ပုဏ္ဏာတိထီ", sun: "ထွက် (၀၆:၂၈) | ဝင် (၁၇:၅၅)" },
+            18: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၂) ရက်", dayName: "ဗုဒ္ဓဟူးနေ့", luck: "အရှေ့လာဘ် / အနောက် နတ်", status: "သာမန်ရက် .. လက်သမားမြေခံ", details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၁)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၂၈) | ဝင် (၁၇:၅၆)" },
+            19: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၃) ရက်", dayName: "ကြာသပတေးနေ့", luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်", status: "ရက်ရာဇာ .. မြေခံဘီလူး", details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၂)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၂၇) | ဝင် (၁၇:၅၆)" },
+            20: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၄) ရက်", dayName: "သောကြာနေ့", luck: "တောင်လာဘ် / အနောက်မြောက် နတ်", status: "ပြဿဒါး .. လက်သမားမြေခံ", details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၃)လုံး ဇယျာတိထီ", sun: "ထွက် (၀၆:၂၇) | ဝင် (၁၇:၅၆)" },
+            21: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၅) ရက်", dayName: "စနေနေ့", luck: "အနောက်တောင်လာဘ် / အရှေ့မြောက် နတ်", status: "သာမန်ရက် .. မြေခံဘီလူး", details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၄)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၂၆) | ဝင် (၁၇:၅၇)" },
+            22: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၆) ရက်", dayName: "တနင်္ဂနွေနေ့", luck: "အနောက်လာဘ် / အရှေ့ နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "သိကြား ချမ်းသာအံ့၊ တိထီ(၅)လုံး ပုဏ္ဏာတိထီ", sun: "ထွက် (၀၆:၂၆) | ဝင် (၁၇:၅၇)" },
+            23: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၇) ရက်", dayName: "တနင်္လာနေ့", luck: "အနောက်မြောက်လာဘ် / အရှေ့တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "ဗြဟ္မာ မင်းဖြစ်အံ့၊ တိထီ(၆)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၂၅) | ဝင် (၁၇:၅၇)" },
+            24: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၈) ရက်", dayName: "အင်္ဂါနေ့", luck: "မြောက်လာဘ် / တောင် နတ်", status: "ရက်ရာဇာ .. လက်သမားမြေခံ", details: "နဂါး မင်းဖြစ်အံ့၊ တိထီ(၇)လုံး ဘဒြာတိထီ", sun: "ထွက် (၀၆:၂၅) | ဝင် (၁၇:၅၇)" },
+            25: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၉) ရက်", dayName: "ဗုဒ္ဓဟူးနေ့", luck: "အရှေ့မြောက်လာဘ် / အနောက်တောင် နတ်", status: "ပြဿဒါး .. မြေခံဘီလူး", details: "ဂဠုန် မင်းဖြစ်အံ့၊ တိထီ(၈)လုံး ဇယျာတိထီ", sun: "ထွက် (၀၆:၂၄) | ဝင် (၁၇:၅၈)" },
+            26: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၀) ရက်", dayName: "ကြာသပတေးနေ့", luck: "အရှေ့လာဘ် / အနောက် နတ်", status: "သာမန်ရက် .. လက်သမားမြေခံ", details: "ဆင် မင်းဖြစ်အံ့၊ တိထီ(၉)လုံး ရိတ္တာတိထီ", sun: "ထွက် (၀၆:၂၄) | ဝင် (၁၇:၅၈)" },
+            27: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၁) ရက်", dayName: "သောကြာနေ့", luck: "အရှေ့တောင်လာဘ် / မြောက် နတ်", status: "ရက်ရာဇာ .. မြေခံဘီလူး", details: "ကျား မင်းဖြစ်အံ့၊ တိထီ(၁၀)လုံး ပုဏ္ဏာတိထီ", sun: "ထွက် (၀၆:၂၃) | ဝင် (၁၇:၅၈)" },
+            28: { burmeseDate: "၁၃၈၇ ခု၊ တပေါင်းလဆန်း (၁၂) ရက်", dayName: "စနေနေ့", luck: "တောင်လာဘ် / အနောက်မြောက် နတ်", status: "ပြဿဒါး .. လက်သမားမြေခံ", details: "နွား မင်းဖြစ်အံ့၊ တိထီ(၁၁)လုံး နန္ဒာတိထီ", sun: "ထွက် (၀၆:၂၃) | ဝင် (၁၇:၅၈)" }
         };
 
+        // Clock Function
         function updateClock() {
             const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth(); 
+            const dayOfMonth = now.getDate();
+
             let hours = now.getHours();
             let mins = now.getMinutes();
             let secs = now.getSeconds();
@@ -631,16 +397,23 @@
             document.getElementById('clock').innerText = `${hours}:${mins}:${secs} ${ampm}`;
             
             const months = ["ဇန်နဝါရီ", "ဖေဖော်ဝါရီ", "မတ်", "ဧပြီ", "မေ", "ဇွန်", "ဇူလိုင်", "သြဂုတ်", "စက်တင်ဘာ", "အောက်တိုဘာ", "နိုဝင်ဘာ", "ဒီဇင်ဘာ"];
-            document.getElementById('displayDate').innerText = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+            document.getElementById('displayDate').innerText = `${dayOfMonth} ${months[month]} ${year}`;
             
-            let dataIdx = now.getDate() % 4;
-            let todayVeda = vedaData[dataIdx];
-            document.getElementById('nakkhat').innerText = todayVeda.nakkhat;
-            document.getElementById('yoga').innerText = todayVeda.yoga;
-            document.getElementById('akhar').innerText = todayVeda.akhar;
-            document.getElementById('razar').innerText = todayVeda.razar;
-            document.getElementById('adviceText').innerText = todayVeda.advice;
-            document.getElementById('razar').style.color = (todayVeda.razar === "ပြဿဒါး") ? "#FF5252" : "#00BFA5";
+            if (year === 2026 && month === 1) {
+                let todayData = dailyVedaData[dayOfMonth];
+                if (todayData) {
+                    document.getElementById('myDate').innerText = todayData.burmeseDate;
+                    document.getElementById('nakkhat').innerText = todayData.luck;
+                    document.getElementById('yoga').innerText = todayData.details;
+                    document.getElementById('akhar').innerText = todayData.dayName;
+                    document.getElementById('razar').innerText = todayData.status;
+                    document.getElementById('adviceText').innerText = todayData.sun;
+                    
+                    document.getElementById('razar').style.color = todayData.status.includes("ပြဿဒါး") ? "#FF5252" : (todayData.status.includes("ရက်ရာဇာ") ? "#00BFA5" : "#FFD600");
+                }
+            } else {
+                document.getElementById('adviceText').innerText = "ယနေ့အတွက် အချက်အလက် မရှိသေးပါ။";
+            }
         }
         setInterval(updateClock, 1000);
         updateClock();
@@ -656,69 +429,65 @@
 
         // Fortune Data
         const fortuneData = {
-            0: { title: "တနင်္ဂနွေ သားသမီးများ", text: "• ဤနှစ်တွင် ဆွေမျိုးအပေါင်းအသင်း၊ လူအဖွဲ့အစည်းနှင့်ယှဉ်တွဲနေထိုင်ရန် ခက်ခဲမှုရှိပြီး အထီးကျန်ဆန်နေတတ်သည်။<br>• အပျော်အပါး၊ အသောက်အစားနှင့် ယှဉ်တွဲနေတတ်သည်။<br>• အလုပ်အကိုင်တွင် ရေလိုက်ငါးလိုက်လုပ်တိုင်း အောင်မြင်နေသည့် အချိန်အခါဖြစ်သည်။<br>• အိမ်ထောင်ရေးသာယာမှုရှိပြီး သားသမီးအရေး အဓိကထား၍ အချိန်ပေးရမည့်ကာလဖြစ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက်တွင် ကံ့ကော်ညွန့် (၂) ညွန့် အိမ်ဘုရားတွင် ကပ်လှူပါ။" },
-            1: { title: "တနင်္လာ သားသမီးများ", text: "• မိမိ၏ လုပ်ဆောင်ချက်တိုင်းကို အများက အသိအမှတ်ပြုခြင်း ခံရမည့်နှစ် ဖြစ်သည်။<br>• ငွေဝင်လမ်း ဖြောင့်ဖြူးသော်လည်း အဝင်ရှိသောက် အထွက်လည်း များနေတတ်သည်။<br>• ကိုယ်ပိုင်လုပ်ငန်းများ ပိုမိုအောင်မြင်ပါလိမ့်မည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက်တွင် အိမ်ဘုရား၌ ကော်ဖီနှင့် ကိတ်မုန့် ကပ်လှူပါ။" },
-            2: { title: "အင်္ဂါ သားသမီးများ", text: "• စိတ်ကူးသစ်၊ အကြံဉာဏ်သစ်များဖြင့် ဘဝကို အကောင်အထည်ဖော်ရမည့် နှစ်ဖြစ်သည်။<br>• အဝေးသင်ခရီးများမှ အကျိုးအမြတ်များ ရရှိမည်။<br>• အကြီးအကဲများ၏ စောင့်ရှောက်မှုကို ခံရမည်။<br><br><b>ယတြာ:</b> ဘုရား၌ ဇီးယို (၃) ထုပ် ကပ်လှူပြီး သက်ကြီးရွယ်အိုတစ်ဦးအား ကုသိုလ်ပြုပါ။" },
-            3: { title: "ဗုဒ္ဓဟူး သားသမီးများ", text: "• ပညာရေးနှင့် သင်တန်းများအတွက် အလွန်ကောင်းသော ကာလဖြစ်သည်။<br>• ရပ်တန့်နေသော အလုပ်များ ပြန်လည်ပတ်လာမည်။<br>• မိတ်ဆွေကောင်းများထံမှ အဖိုးတန်လက်ဆောင်များ ရရှိတတ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့ညနေတွင် ဘုရား၌ ရွက်လှ (၄) ညွန့် ကပ်လှူပါ။" },
-            4: { title: "ကြာသပတေး သားသမီးများ", text: "• အရာရာကို ခေါင်းဆောင်နိုင်စွမ်း ရှိနေမည့်နှစ် ဖြစ်သည်။ ကံမြင့်မားနေသော အချိန်ဖြစ်သည်။<br>• အစုစပ်လုပ်ငန်းများမှ အကျိုးအမြတ်ကြီးစွာ ရရှိမည်။ နိုင်ငံရပ်ခြားခရီး ကောင်းသည်။<br><br><b>ယတြာ:</b> ပေါက်စီ (၅) လုံး ဘုရားကပ်လှူပြီး ကလေးများကို မုန့်ဝေငှပါ။" },
-            5: { title: "သောကြာ သားသမီးများ", text: "• အလှအပနှင့် အနုပညာဆိုင်ရာ ကိစ္စများတွင် ကံကောင်းတတ်သည်။<br>• အဝတ်အထည်လုပ်ငန်း အထူးကောင်းမွန်မည်။<br>• ချစ်သူမရှိသေးသူများ အချစ်သစ်တွေ့တတ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက်တွင် သီးသီး (၆) လုံး ဘုရားကပ်လှူပါ။" },
-            6: { title: "စနေ သားသမီးများ", text: "• သည်းခံစိတ်မွေးရမည့်နှစ် ဖြစ်သည်။ အခက်အခဲများသော်လည်း ဇွဲကြောင့် အောင်မြင်မည်။<br>• အလုပ်တွင် တာဝန်အသစ်များ တိုးလာမည်။<br>• မိတ်ဆွေဟောင်းများနှင့် ပြန်လည်ဆုံတွေ့ရတတ်သည်။<br><br><b>ယတြာ:</b> နှင်းဆီပန်း (၇) ပွင့် ဘုရားကပ်လှူပြီး လိုရာဆုတောင်းပါ။" }
+            0: { title: "တနင်္ဂနွေ သားသမီးများ", text: "• ဤနှစ်တွင် ဆွေမျိုးအပေါင်းအသင်း၊ လူအဖွဲ့အစည်းနှင့်ယှဉ်တွဲနေထိုင်ရန် ခက်ခဲမှုရှိပြီး အထီးကျန်ဆန်နေတတ်သည်။<br>• အပျော်အပါး၊ အသောက်အစားနှင့် ယှဉ်တွဲနေတတ်သည်။<br>• ငယ်ရွယ်သူအဖို့ တည်ငြိမ်သင့်သည့်ကာလဖြစ်၍ မသင့်လျော်သူနှင့် အဖန်ဖန်ကြုံတွေ့ရတတ်သည်။<br>• အလုပ်အကိုင်တွင် ရေလိုက်ငါးလိုက်လုပ်တိုင်း အောင်မြင်နေသည့် အချိန်အခါဖြစ်ပြီး ကျေးဇူးရှိသူတို့အပေါ် အထူးအမှတ်ရှိနေသင့်သည်။<br>• အိမ်ထောင်ရေးသာယာမှုရှိပြီး သားသမီးအရေး အဓိကထား၍ အချိန်ပေးရမည့်ကာလဖြစ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက် (၁၀:၄၅) မိနစ်တွင် ကံ့ကော်ညွန့် (၂) ညွန့် အိမ်ဘုရားတွင် ကပ်လှူ၍ လိုရာဆုတောင်းပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၇-၁-၈)" },
+            1: { title: "တနင်္လာ သားသမီးများ", text: "• မိမိ၏ လုပ်ဆောင်ချက်တိုင်းကို အများက အသိအမှတ်ပြုခြင်း ခခံရမည့်နှစ် ဖြစ်သည်။<br>• ငွေဝင်လမ်း ဖြောင့်ဖြူးသော်လည်း အဝင်ရှိသလောက် အထွက်လည်း များနေတတ်သည်။<br>• အစုစပ်လုပ်ငန်းများထက် ကိုယ်ပိုင်လုပ်ငန်းများ ပိုမိုအောင်မြင်ပါလိမ့်မည်။<br>• မိတ်ဆွေသစ်များ တိုးပွားတတ်သော်လည်း မနာလိုသူ အနည်းငယ် ရှိတတ်၍ စကားပြောဆင်ခြင်ပါ။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက် (၉:၀၀) နာရီတွင် အိမ်ဘုရား၌ ကော်ဖီ (၁) ခွက်နှင့် ကိတ်မုန့် ကပ်လှူဆုတောင်းပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၂-၄-၉)" },
+            2: { title: "အင်္ဂါ သားသမီးများ", text: "• စိတ်ကူးသစ်၊ အကြံဉာဏ်သစ်များဖြင့် ဘဝကို အကောင်အထည်ဖော်ရမည့် နှစ်ဖြစ်သည်။<br>• အဝေးသင်ခရီးများ သွားရောက်ရတတ်ပြီး ထိုခရီးမှ အကျိုးအမြတ်များ ရရှိမည်။<br>• အကြီးအကဲများ၏ စောင့်ရှောက်မှုကို ခံရမည်။ လက်အောက်ငယ်သားများကြောင့် စိတ်အနည်းငယ် ညစ်ရတတ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက် (၇:၃၀) နာရီတွင် ဘုရား၌ ဇီးယို (၃) ထုပ် ကပ်လှူပြီး သက်ကြီးရွယ်အိုတစ်ဦးအား အချိုရည် တိုက်ကျွေးပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၃-၀-၅)" },
+            3: { title: "ဗုဒ္ဓဟူး သားသမီးများ", text: "• ပညာရေးနှင့် သင်တန်းများအတွက် အလွန်ကောင်းသော ကာလဖြစ်သည်။<br>• ရပ်တန့်နေသော အလုပ်များ ပြန်လည်ပတ်လာမည်။ စာချုပ်စာတမ်းကိစ္စများ သတိထားပါ။<br>• မိတ်ဆွေကောင်းများထံမှ အဖိုးတန်လက်ဆောင်များ ရရှိတတ်သည်။ လူယုံသတ်တတ်၍ သတိပြုပါ။<br><br><b>ယတြာ:</b> မွေးနေ့ညနေ (၄:၁၅) မိနစ်တွင် ဘုရား၌ ရွက်လှ (၄) ညွန့် ကပ်လှူ၍ အဓိဋ္ဌာန်ပြုပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၄-၆-၁)" },
+            4: { title: "ကြာသပတေး သားသမီးများ", text: "• အရာရာကို ခေါင်းဆောင်နိုင်စွမ်း ရှိနေမည့်နှစ် ဖြစ်သည်။ ကံမြင့်မားနေသော အချိန်ဖြစ်သည်။<br>• အစုစပ်လုပ်ငန်းများမှ အကျိုးအမြတ်ကြီးစွာ ရရှိမည်။ နိုင်ငံရပ်ခြားခရီး ကောင်းသည်။<br>• အသင်းအဖွဲ့များတွင် နေရာကောင်းရခြင်း၊ ဂုဏ်ပြုခံရခြင်းများ ကြုံရမည်။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက် (၁၀:၀၀) နာရီတွင် ပေါက်စီ (၅) လုံး ဘုရားကပ်လှူပြီး ကလေးများကို မုန့်ဝေငှပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၅-၈-၂)" },
+            5: { title: "သောကြာ သားသမီးများ", text: "• အလှအပနှင့် အနုပညာဆိုင်ရာ ကိစ္စများတွင် ကံကောင်းတတ်သည်။ ခရီးတိုများ မကြာခဏ သွားရမည်။<br>• စပ်တူရှယ်ယာလုပ်ငန်းများ သတိထားပါ။ အဝတ်အထည်လုပ်ငန်း အထူးကောင်းမွန်မည်။<br>• အချစ်ရေးတွင် ပြိုင်ဘက်ပေါ်တတ်သည်။ အိမ်ထောင်ရေးတွင် အလျှော့ပေးပါ။<br><br><b>ယတြာ:</b> မွေးနေ့နံနက် (၉:၄၅) မိနစ်တွင် သီးသီး (၆) လုံး ဘုရားကပ်လှူပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၆-၃-၀)" },
+            6: { title: "စနေ သားသမီးများ", text: "• သည်းခံစိတ်မွေးရမည့်နှစ် ဖြစ်သည်။ အခက်အခဲများသော်လည်း ဇွဲကြောင့် အောင်မြင်မည်။<br>• အလုပ်တွင် တာဝန်အသစ်များ တိုးလာမည်။ အပြောင်းအလဲများက ကောင်းကျိုးပေးပါမည်။<br>• မိတ်ဆွေဟောင်းများနှင့် ပြန်လည်ဆုံတွေ့ရတတ်သည်။<br><br><b>ယတြာ:</b> မွေးနေ့ညနေ (၅:၀၀) နာရီတွင် နှင်းဆီပန်း (၇) ပွင့် ဘုရားကပ်လှူပြီး လမ်းဘေးခွေးများကို အစာကျွေးပါ။<br><b>အကျိုးပေးဂဏန်း:</b> (၇-၉-၄)" }
         };
 
         function showFortune() {
             const day = document.getElementById('userDay').value;
             const res = document.getElementById('fortuneResult');
             const data = fortuneData[day];
-            
-            // Animation effect
             res.style.display = 'block';
-            document.getElementById('fortuneTitle').innerHTML = "<span class='loading-text'>တွက်ချက်နေပါသည်...</span>";
-            document.getElementById('fortuneText').innerHTML = "";
+            document.getElementById('fortuneTitle').innerHTML = "✨ " + data.title + " တစ်နှစ်တာအဟော";
+            document.getElementById('fortuneText').innerHTML = data.text;
+            res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function askTarot() {
+            const q = document.getElementById('tarotQuestion').value;
+            if(!q) return alert("မေးခွန်းရေးပါ။");
+            const resDiv = document.getElementById('tarotResult');
+            resDiv.style.display = 'block';
+            document.getElementById('tarotAnswer').innerText = "တွက်ချက်နေသည်...";
+            document.getElementById('tarotDesc').innerText = "";
             
             setTimeout(() => {
-                document.getElementById('fortuneTitle').innerHTML = "✨ " + data.title + " တစ်နှစ်တာအဟော";
-                document.getElementById('fortuneText').innerHTML = data.text;
-                res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const results = [
+                    ["YES", "yes-answer", "ရှေ့ဆက်ဆောင်ရွက်ပါ။ အောင်မြင်ပါလိမ့်မည်။"],
+                    ["NO", "no-answer", "ယခုအချိန်တွင် မသင့်တော်သေးပါ။ ခေတ္တစောင့်ဆိုင်းပါ။"],
+                    ["MAYBE", "maybe-answer", "ရလဒ်မှာ မသေချာသေးပါ။ ထပ်မံစဉ်းစားသုံးသပ်ပါ။"]
+                ];
+                const r = results[Math.floor(Math.random()*results.length)];
+                document.getElementById('tarotAnswer').innerText = r[0];
+                document.getElementById('tarotAnswer').className = "tarot-answer " + r[1];
+                document.getElementById('tarotDesc').innerText = r[2];
             }, 1000);
         }
 
-        // Tarot Logic
-        const tarotData = {
-            yes: ["YES", "yes-answer", "တားရော့ကတ်များက အပြုသဘောဆောင်နေသည်။ ရှေ့ဆက်ဆောင်ရွက်ပါ။"],
-            no: ["NO", "no-answer", "ယခုအချိန်တွင် ဤကိစ္စကို ဆောင်ရွက်ရန် မသင့်တော်သေးပါ။"],
-            maybe: ["MAYBE", "maybe-answer", "ရလဒ်မှာ မသေချာသေးပါ။ ထပ်မံစဉ်းစားသုံးသပ်သင့်သည်။"]
-        };
-        
-        function askTarot() {
-            const ques = document.getElementById('tarotQuestion').value;
-            if(!ques) return alert("မေးခွန်းရေးပေးပါ။");
-            
-            const resultDiv = document.getElementById('tarotResult');
-            resultDiv.style.display = 'block';
-            document.getElementById('tarotAnswer').innerHTML = "<span class='loading-text' style='font-size: 1.5rem;'>ကတ်လှန်နေသည်...</span>";
-            document.getElementById('tarotDesc').innerText = "";
-
-            setTimeout(() => {
-                const keys = Object.keys(tarotData);
-                const rand = tarotData[keys[Math.floor(Math.random()*keys.length)]];
-                document.getElementById('tarotAnswer').innerText = rand[0];
-                document.getElementById('tarotAnswer').className = "tarot-answer " + (rand[0].toLowerCase() + "-answer");
-                document.getElementById('tarotDesc').innerText = rand[2];
-            }, 1200);
-        }
-
-        // Payment Logic
         function openPayment(item, price) {
             document.getElementById('orderDetail').innerText = `${item} - ${price} ကျပ်`;
-            const msg = encodeURIComponent(`မင်္ဂလာပါဆရာ။ "${item}" ဝယ်ယူလိုလို့ ငွေလွှဲပြေစာ ပို့ပေးလိုက်ပါတယ်ခင်ဗျာ။`);
-            document.getElementById('confirmBtn').href = `https://m.me/htoothitzyan?text=${msg}`;
+            document.getElementById('confirmBtn').href = `https://m.me/htoothitzyan?text=ဝယ်ယူလိုပါသည်: ${item}`;
             document.getElementById('paymentModal').style.display = "block";
         }
         function closePayment() { document.getElementById('paymentModal').style.display = "none"; }
-        function copyText(txt) {
-            navigator.clipboard.writeText(txt).then(() => alert("နံပါတ် " + txt + " ကို Copy ကူးယူပြီးပါပြီ။"));
+        function copyText(txt) { 
+            navigator.clipboard.writeText(txt).then(() => {
+                alert("Copied: " + txt);
+            }).catch(err => {
+                console.error('Copy failed: ', err);
+            });
         }
-        window.onclick = (e) => { if(e.target == document.getElementById('paymentModal')) closePayment(); }
+        
+        // Close modal on outside click
+        window.onclick = function(event) {
+            let modal = document.getElementById('paymentModal');
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
     </script>
 </body>
 </html>
