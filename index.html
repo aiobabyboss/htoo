@@ -149,9 +149,15 @@
             .section-title { font-size: 1.8rem; }
             .digital-clock { font-size: 2.5rem; }
         }
-    </style>
-</head>
+  
+        /* Ta Kwin Si Custom Styles */
+        .tk-card { background: rgba(255, 255, 255, 0.05); border-left: 4px solid var(--color-accent); padding: 15px; margin-bottom: 15px; border-radius: 10px; }
+        .tk-year { color: var(--color-accent); font-weight: 800; font-size: 1.3rem; }
+        .tk-pred { font-size: 0.95rem; color: #ddd; margin-top: 5px; line-height: 1.5; font-style: italic; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+</head>
+   </style> 
 <body>
 
     <div class="marquee-bar">
@@ -259,6 +265,26 @@
                     <div id="tarotAnswer" class="tarot-answer"></div>
                     <p id="tarotDesc" style="margin-top:10px; font-style:italic; color:var(--color-secondary);"></p>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section id="ta-kwin-si" style="background: rgba(0,0,0,0.1);">
+        <div class="container">
+            <h2 class="section-title">✨ သင့်ဘဝရဲ့ ထူးခြားတဲ့နှစ်?</h2>
+            <div class="card-style" style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <p style="margin-bottom: 20px; color: #bbb;">မြန်မာ့ရိုးရာ တာကွင်စီနည်းဖြင့် သင့်ဘဝ၏ အလှည့်အပြောင်း ကံကြမ္မာနှစ်များကို တွက်ချက်ကြည့်ပါ။</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <input type="number" id="birthYearInput" placeholder="မွေးသက္ကရာဇ် (AD) ရိုက်ထည့်ပါ - ဥပမာ 1993" 
+                           style="max-width: 350px; padding: 15px; border-radius: 30px; background: rgba(0,0,0,0.4); color: white; border: 2px solid var(--color-primary); outline: none; text-align: center; font-size: 1.1rem;">
+                </div>
+                
+                <button class="cta-button" onclick="calculateTaKwinSi()">
+                    <i class="fas fa-calculator"></i> တွက်ချက်မည်
+                </button>
+
+                <div id="tkResult" style="display:none; margin-top: 35px; text-align: left; animation: fadeIn 0.5s;">
+                    </div>
             </div>
         </div>
     </section>
@@ -506,6 +532,55 @@
             let modal = document.getElementById('paymentModal');
             if (event.target == modal) { modal.style.display = "none"; }
         }
+        const tkPredictions = {
+            1: "အစပျိုးခြင်းနှစ် - အလုပ်သစ်၊ နေရာသစ် ရတတ်သည်။ မိမိကိုယ်ပိုင် ဆုံးဖြတ်ချက်ဖြင့် အောင်မြင်မည့်နှစ်ဖြစ်သည်။",
+            2: "ပူးပေါင်းဆောင်ရွက်မှုနှစ် - အချစ်ရေး၊ အိမ်ထောင်ရေး သတင်းကောင်းကြားရတတ်သည်။ မိတ်ဆွေသစ်များ တိုးပွားမည်။",
+            3: "တိုးတက်ပျော်ရွှင်မှုနှစ် - ပညာရေးနှင့် ဖန်တီးမှုပိုင်းတွင် နာမည်ကျော်ကြားတတ်သည်။ ငွေကြေးကံ အသင့်အတင့်ရှိသည်။",
+            4: "တည်ဆောက်ရမည့်နှစ် - အလုပ်များမည်၊ ပင်ပန်းမည်။ အပင်ပန်းခံမှ အောင်မြင်မှုရမည်။ ကျန်းမာရေး ဂရုစိုက်ပါ။",
+            5: "အပြောင်းအလဲနှစ် - မမျှော်လင့်ဘဲ ဘဝတစ်ခုလုံး ပြောင်းလဲသွားနိုင်သည့် အခွင့်အရေးများ ကြုံရတတ်သည်။",
+            6: "တာဝန်ယူရခြင်းနှစ် - အိမ်ထောင်ကျခြင်း၊ ရင်သွေးရခြင်း သို့မဟုတ် မိသားစုအတွက် အကျိုးပြုရခြင်းများ ရှိမည်။",
+            7: "ဆင်ခြင်သုံးသပ်ရမည့်နှစ် - စိတ်ပိုင်းဆိုင်ရာ တိုးတက်မည်။ အေးအေးဆေးဆေး နေလိုစိတ်များမည်။ အသိပညာ တိုးမည့်နှစ်ဖြစ်သည်။",
+            8: "ငွေကြေးနှင့် အာဏာနှစ် - စီးပွားရေး အကြီးအကျယ် အောင်မြင်ခြင်း၊ ရာထူးတက်ခြင်းများ ကြုံရတတ်သော ကံထူးသည့်နှစ်ဖြစ်သည်။",
+            9: "အသစ်အတွက် ပြင်ဆင်ခြင်း - အဟောင်းများကို စွန့်လွှတ်ရတတ်သည်။ ကုသိုလ်ကောင်းမှု များများလုပ်သင့်သည်။"
+        };
+
+        function sumDigits(n) {
+            return n.toString().split('').reduce((a, b) => a + parseInt(b), 0);
+        }
+
+        function getSingleDigit(n) {
+            while (n > 9) { n = n.toString().split('').reduce((a, b) => a + parseInt(b), 0); }
+            return n;
+        }
+
+        function calculateTaKwinSi() {
+            let birthYear = parseInt(document.getElementById('birthYearInput').value);
+            if (!birthYear || birthYear < 1000) { alert("မှန်ကန်သော ခုနှစ်ထည့်ပါ"); return; }
+
+            const resDiv = document.getElementById('tkResult');
+            resDiv.innerHTML = ""; // Clear old results
+            resDiv.style.display = "block";
+
+            let currentYear = birthYear;
+            let labels = ["ပထမအလှည့်အပြောင်း", "ဒုတိယအလှည့်အပြောင်း", "တတိယအလှည့်အပြောင်း"];
+
+            for (let i = 0; i < 3; i++) {
+                let sum = sumDigits(currentYear);
+                let nextYear = currentYear + sum;
+                let predKey = getSingleDigit(nextYear);
+                
+                resDiv.innerHTML += `
+                    <div class="tk-card">
+                        <div style="font-size: 0.8rem; color: var(--color-primary); font-weight: bold;">${labels[i]}</div>
+                        <div class="tk-year">${nextYear} ခုနှစ်</div>
+                        <div class="tk-pred"><b>ဟောကိန်း:</b> ${tkPredictions[predKey]}</div>
+                    </div>
+                `;
+                currentYear = nextYear;
+            }
+            resDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
     </script>
 </body>
 </html>
